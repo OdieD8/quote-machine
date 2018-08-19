@@ -1,5 +1,6 @@
 angular.module("app").controller("homeController", function($scope, $state, userService) {
 	
+	var count = 0;
 	$scope.newQuote = function() {
 		
 		userService.getQuote().then(function(data) {
@@ -9,5 +10,8 @@ angular.module("app").controller("homeController", function($scope, $state, user
 		});
 	}
 	
-	//$scope.newQuote();
+	if (count === 0) {
+		$scope.newQuote();
+		count++;
+	}
 })
